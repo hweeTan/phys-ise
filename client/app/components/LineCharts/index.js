@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LineChart } from 'react-d3';
+import { LineChart } from 'rd3';
 
 import formulaSettings from 'settings/formulas';
 import colors from 'styles/colors';
