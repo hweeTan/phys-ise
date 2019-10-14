@@ -1,0 +1,3 @@
+export const UPLOAD_DOCUMENT_SUCCESS = 'app/HomePage/UPLOAD_DOCUMENT_SUCCESS';
+export const UPLOAD_DOCUMENT_FAIL = 'app/HomePage/UPLOAD_DOCUMENT_FAIL';
+export const SET_LOADING = 'app/HomePage/SET_LOADING';
