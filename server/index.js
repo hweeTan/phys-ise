@@ -18,8 +18,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use('/media', express.static('store/media'));
+app.use('/views', express.static('public'));
 
-app.use('/', require('./src/convert/index.js'));
+app.use('/api', require('./src/convert/index.js'));
+app.get('/', (req, res) => {
+  return res.sendFile(path.join(__dirname, 'public/index.html'))
+})
 
 http.createServer(app).listen(port);
 console.log('port ' + port);
