@@ -9,7 +9,7 @@ import { getOffset, isTouchDevice } from 'utils/helpers';
 import { baseLog } from 'utils/number';
 import makeSelectToolbox, { makeSelectCollision } from 'containers/Toolbox/selectors';
 import { updateTool, updatePoint, updateVector, toggleForce } from 'containers/Toolbox/actions';
-import poster from 'images/poster.png';
+import poster from 'images/poster.jpg';
 
 import TrackerWrapper from './styled-components/TrackerWrapper';
 import { radToDeg } from './utils/angle';
