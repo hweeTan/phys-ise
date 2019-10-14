@@ -10,7 +10,7 @@ const webpack = require('webpack');
 module.exports = (options) => ({
   entry: options.entry,
   output: Object.assign({ // Compile into js/build.js
-    path: path.resolve(process.cwd(), '../server', 'public'),
+    path: path.resolve(process.cwd(), '../', 'public'),
     publicPath: '/views/',
   }, options.output), // Merge with env dependent settings
   module: {
