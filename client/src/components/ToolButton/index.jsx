@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { get } from 'lodash'
 
+import { Text } from '../Text'
 import colors from 'src/styles/colors'
 import toolSet from 'src/settings/toolSet'
 
@@ -14,9 +14,9 @@ function ToolButton({ type, isActive = false, onClick, color = colors.gray1 }) {
       onClick={() => onClick(type)}
     >
       <span className="image-holder">
-        <img className="image" src={get(toolSet, [type, 'icon'])} alt={type} />
+        <img className="image" src={toolSet[type].icon} alt={type} />
       </span>
-      <span className="tooltip">{get(toolSet, [type, 'tooltip'])}</span>
+      <Text as="span" className="tooltip" content={toolSet[type].tooltip} />
     </ToolButtonWrapper>
   )
 }

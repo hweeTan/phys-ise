@@ -409,7 +409,7 @@ export const Tracker = () => {
       />
       {analyzeMode && (
         <CollisionPanel
-          {...collision}
+          {...collisionData}
           pointData={pointTool.data}
           collisionTool={collisionTool}
           toggleForce={toggleForceVector}

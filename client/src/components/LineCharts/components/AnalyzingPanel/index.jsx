@@ -5,6 +5,7 @@ import { roundNum } from 'src/utils/number'
 import bestFit from 'src/settings/bestFit'
 import Select from 'src/components/Select'
 import TextInput from 'src/components/TextInput'
+import { Text } from 'src/components/Text'
 
 import Wrapper from './Wrapper'
 
@@ -36,29 +37,27 @@ function AnalyzingPanel({ name, bestFitType, changeType, data, coefficients }) {
         />
       ))}
       {get(bestFit, [bestFitType, 'auto']) && (
-        <button
+        <Text
+          as="button"
           className="auto-btn"
           onClick={autoFit(changeType, name, bestFitType, data)}
-        >
-          Tính tự động
-        </button>
+          content="auto"
+        />
       )}
     </div>
   )
 
   return (
     <Wrapper className="analyzing-info">
-      <h3 className="title">Phân tích đồ thị</h3>
+      <Text as="h3" className="title" content="analyze_graph" />
       <Select
         id={`${name}-bestfit`}
         onChange={(e) => changeType(name, 'bestFit', e.target.value)}
         value={bestFitType}
       >
-        <option value="">Mặc định</option>
+        <Text as="option" value="" content="default" />
         {map(bestFit, (item, key) => (
-          <option key={key} value={key}>
-            {item.name}
-          </option>
+          <Text as="option" key={key} value={key} content={item.name} />
         ))}
       </Select>
       {bestFitType ? content : <p>Hãy chọn phương trình</p>}

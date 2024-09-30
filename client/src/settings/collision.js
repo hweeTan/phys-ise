@@ -1,11 +1,11 @@
 export default {
   p: {
-    name: 'Động lượng',
+    name: 'momentum',
   },
   F: {
-    name: 'Lực',
+    name: 'force',
   },
   v: {
-    name: 'Vận tốc',
+    name: 'velocity',
   },
 }

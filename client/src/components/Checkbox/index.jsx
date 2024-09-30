@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types'
+
+import { Text } from '../Text'
 import CustomCheckbox from './CustomCheckbox'
 
 function Checkbox(props) {
@@ -14,7 +16,11 @@ function Checkbox(props) {
         onChange={onChange}
         value={value}
       />
-      <label htmlFor={id}>{label}</label>
+      {typeof label === 'string' ? (
+        <Text as="label" htmlFor={id} content={label} />
+      ) : (
+        label
+      )}
     </CustomCheckbox>
   )
 }

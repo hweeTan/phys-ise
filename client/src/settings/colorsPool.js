@@ -3,32 +3,32 @@ import colors from 'src/styles/colors'
 export default [
   {
     id: 'pink',
-    name: 'Hồng',
+    name: 'pink',
     hex: colors.pink,
   },
   {
     id: 'purple',
-    name: 'Tím',
+    name: 'purple',
     hex: colors.purple,
   },
   {
     id: 'green',
-    name: 'Lục',
+    name: 'green',
     hex: colors.green,
   },
   {
     id: 'blue',
-    name: 'Lam',
+    name: 'blue',
     hex: colors.blue,
   },
   {
     id: 'gray',
-    name: 'Xám',
+    name: 'gray',
     hex: colors.gray1,
   },
   {
     id: 'black',
-    name: 'Đen',
+    name: 'black',
     hex: colors.black,
   },
 ]

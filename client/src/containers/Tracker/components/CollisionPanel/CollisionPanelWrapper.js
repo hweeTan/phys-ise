@@ -4,7 +4,7 @@ import colors from 'src/styles/colors'
 
 const CollisionPanelWrapper = styled.div`
   position: absolute;
-  top: 0
+  top: 0;
   left: 0;
   background-color: ${colors.white};
   padding: 2rem;

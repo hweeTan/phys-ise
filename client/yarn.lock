@@ -1911,15 +1911,6 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.8.6:
-  version "16.14.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
-  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-
 react@^18.3.1:
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react/-/react-18.3.1.tgz#49ab892009c53933625bd16b2533fc754cab2891"
@@ -2127,12 +2118,10 @@ side-channel@^1.0.4, side-channel@^1.0.6:
     get-intrinsic "^1.2.4"
     object-inspect "^1.13.1"
 
-simple-languages@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/simple-languages/-/simple-languages-1.0.3.tgz#e818aad5ba10d7fef9c7ad0b9427ba2fe1bcc1c9"
-  integrity sha512-C2wr86Ob1xrjC3LX4SaH+EOeEzxU51L5p2akMGKSN2b0/NxSvUVpds4vCcnXto3BxaQpvi71Yy/Al0xhNC7MWw==
-  dependencies:
-    react "^16.8.6"
+simple-languages@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/simple-languages/-/simple-languages-1.0.4.tgz#c968ba85b1a474567b91d4b752b9009f940f907b"
+  integrity sha512-llXBG7qMMl53bqYaPxzFpv6EOSbtf2WxPYy2byfDlizw97lnrzrAgb7EDp18r3xNKCWs4KaGgGG36AOtwRzg6g==
 
 source-map-js@^1.2.0, source-map-js@^1.2.1:
   version "1.2.1"

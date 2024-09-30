@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { map } from 'lodash'
 
 import { roundNum } from 'src/utils/number'
+import { Text } from 'src/components/Text'
 
 const renderTableHead = (sets) => {
   return (
@@ -10,9 +11,7 @@ const renderTableHead = (sets) => {
       <tr>
         <th />
         {map(sets, ({ name }, key) => (
-          <th key={key} colSpan={2}>
-            {name}
-          </th>
+          <Text as="th" content={name} key={key} colSpan={2} />
         ))}
       </tr>
     </thead>
@@ -44,7 +43,9 @@ const renderTableBody = (sets) => {
         ])}
       </tr>
       <tr>
-        <td>Tổng p</td>
+        <td>
+          <Text content="total" /> p
+        </td>
         {map(sets, (set) => (
           <td key={set.name} colSpan={2}>
             {roundNum(set.p)}
@@ -58,17 +59,21 @@ const renderTableBody = (sets) => {
 const renderEnergyTable = (sets) => {
   return (
     <table className="collision-table">
-      {this.renderTableHead()}
+      {renderTableHead(sets)}
       <tbody>
         <tr>
-          <td>Wđ (J)</td>
+          <td>
+            <Text content="Ek" /> (J)
+          </td>
           {map(sets, (set) => [
             <td key={`${set.name}-E1`}>{roundNum(set.E1)}</td>,
             <td key={`${set.name}-E2`}>{roundNum(set.E2)}</td>,
           ])}
         </tr>
         <tr>
-          <td>Tổng Wđ</td>
+          <td>
+            <Text content="total" /> <Text content="Ek" />
+          </td>
           {map(sets, (set) => (
             <td key={set.name} colSpan={2}>
               {roundNum(set.E1 + set.E2)}
@@ -89,12 +94,12 @@ const MomentumPanel = ({ data: sets }) => {
         {renderTableHead(sets)}
         {renderTableBody(sets)}
       </table>
-      <button
+      <Text
+        as="button"
+        content="momentum"
         className="collision-reveal"
         onClick={() => setShowEnergy((prev) => !prev)}
-      >
-        Động năng
-      </button>
+      />
       {showEnergy && renderEnergyTable(sets)}
     </div>
   )

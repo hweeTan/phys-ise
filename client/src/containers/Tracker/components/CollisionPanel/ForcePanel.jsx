@@ -8,7 +8,7 @@ function renderTableHead(sets, pointData) {
     <thead>
       <tr>
         <th />
-        {map(sets, (set, key) => (
+        {map(sets, (_, key) => (
           <th key={key}>{pointData[key.replace('set', '')].name}</th>
         ))}
       </tr>

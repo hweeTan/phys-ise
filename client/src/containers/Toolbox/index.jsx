@@ -23,7 +23,7 @@ export const Toolbox = () => {
 
   const changeFramerate = (payload) => dispatch(ChangeFramerate(payload))
   const markFrame = (payload) => dispatch(MarkFrame(payload))
-  const toggleAnalyze = (payload) => dispatch(ToggleAnalyze(payload))
+  const toggleAnalyze = () => dispatch(ToggleAnalyze())
 
   const currentTool = useCurrentTool()
   const { frameRate, start, end, analyzeMode } = useTracker()

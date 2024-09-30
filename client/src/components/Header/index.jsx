@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux'
 
+import { Text } from '../Text'
+import { useLang } from 'src/i18n'
 import { useToolbox } from 'src/containers/Toolbox/selectors'
 import { ChangeTool } from 'src/containers/Toolbox/reducer'
 import { ToggleModal } from 'src/containers/FileInfo/reducer'
@@ -20,9 +22,11 @@ function Header({ openVideo, uploadVideo }) {
   const changeTool = (type) => dispatch(ChangeTool(type))
   const toggleModal = (modal) => dispatch(ToggleModal(modal))
 
+  const { switchLang, lang } = useLang()
+
   return (
     <HeaderWrapper>
-      <div className="tool-group">
+      <div>
         <ToolButton
           type="videoSettings"
           isActive={currentTool === 'videoSettings'}
@@ -55,12 +59,15 @@ function Header({ openVideo, uploadVideo }) {
         />
       </div>
       <div className="utility-group">
-        <div className="upload-file">
+        <button className="utility-button" onClick={switchLang}>
+          <span className="text">{lang.toUpperCase()}</span>
+        </button>
+        <div className="utility-button upload-file">
           <input
             id="upload-file"
             name="video"
             type="file"
-            className="utility-button upload-video"
+            className="upload-video"
             onChange={uploadVideo}
           />
           <label htmlFor="upload-file">
@@ -70,21 +77,21 @@ function Header({ openVideo, uploadVideo }) {
         </div>
         <button className="utility-button open-video" onClick={openVideo}>
           <img src={iconVideo} alt="icon video" />
-          <span className="text">Chọn video</span>
+          <Text as="span" className="text" content="pick_video" />
         </button>
         <button
           className="utility-button open-file"
           onClick={() => toggleModal('openFile')}
         >
           <img src={iconFile} alt="icon file" />
-          <span className="text">Mở bài</span>
+          <Text as="span" className="text" content="open" />
         </button>
         <button
           className="utility-button save-file"
           onClick={() => toggleModal('saveFile')}
         >
           <img src={iconSave} alt="icon file" />
-          <span className="text">Lưu bài</span>
+          <Text as="span" className="text" content="save" />
         </button>
       </div>
     </HeaderWrapper>

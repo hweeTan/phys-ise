@@ -4,6 +4,7 @@ import { map, get } from 'lodash'
 import collisionSettings from 'src/settings/collision'
 import Checkbox from 'src/components/Checkbox'
 import Select from 'src/components/Select'
+import { Text } from 'src/components/Text'
 
 import { useCollision, usePoint } from '../../selectors'
 import ToolContentWrapper from './ToolContentWrapper'
@@ -47,9 +48,7 @@ function CollisionContent({
         value={mode}
       >
         {map(collisionSettings, (item, key) => (
-          <option key={key} value={key}>
-            {item.name}
-          </option>
+          <Text as="option" key={key} value={key} content={item.name} />
         ))}
       </Select>
       <Select
@@ -58,18 +57,20 @@ function CollisionContent({
         onChange={(e) => onChange('collision', 'currentSet', e.target.value)}
         value={currentSet}
       >
-        {map(data, (item, key) => (
-          <option key={key} value={key}>
-            {mode === 'p'
-              ? item.name
-              : get(point, ['data', key.replace('set', ''), 'name'])}
-          </option>
-        ))}
+        {map(data, (item, key) =>
+          mode === 'p' ? (
+            <Text as="option" key={key} value={key} content={item.name} />
+          ) : (
+            <option key={key} value={key}>
+              {point.data[key.replace('set', '')].name}
+            </option>
+          ),
+        )}
       </Select>
       <Checkbox
         id="vector-on"
         checked={currentOn}
-        label="Mở"
+        label="toggle_analyze"
         onChange={() => updateVector(currentSet, 'on', !currentOn)}
       />
 
@@ -81,7 +82,7 @@ function CollisionContent({
       <Checkbox
         id="analyze-mode"
         checked={analyzeMode}
-        label="Phân tích"
+        label="analyze"
         onChange={toggleAnalyze}
       />
     </ToolContentWrapper>

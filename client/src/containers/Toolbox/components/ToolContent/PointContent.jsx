@@ -54,13 +54,13 @@ function PointContent({ updatePoint, onChange }) {
       <Checkbox
         id="point-on"
         checked={currentOn}
-        label="Bật/Tắt"
+        label="on_off"
         onChange={() => updatePoint(currentPoint, 'on', !currentOn)}
       />
       <Checkbox
         id="point-track-mode"
         checked={trackMode}
-        label="Tạo điểm"
+        label="create_point"
         onChange={() => onChange('point', 'trackMode', !trackMode)}
       />
     </ToolContentWrapper>

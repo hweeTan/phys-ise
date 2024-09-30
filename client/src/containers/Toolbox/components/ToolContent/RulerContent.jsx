@@ -45,7 +45,7 @@ function RulerContent({ onChange }) {
       <Checkbox
         id="ruler-on"
         checked={on}
-        label="Bật/Tắt"
+        label="on_off"
         onChange={() => onChange('ruler', 'on', !on)}
       />
     </ToolContentWrapper>

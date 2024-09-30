@@ -3,6 +3,7 @@ import { map, includes, filter } from 'lodash'
 
 import formulas from 'src/settings/formulas'
 import Checkbox from 'src/components/Checkbox'
+import { Text } from 'src/components/Text'
 
 const getTableCol = (tableCol, choosen) => {
   if (includes(tableCol, choosen)) {
@@ -24,7 +25,11 @@ function TableSettings({ tableCol, changeType, name }) {
           onChange={(e) =>
             changeType(name, 'tableCol', getTableCol(tableCol, e.target.value))
           }
-          label={`${entry.label} (${entry.unit})`}
+          label={
+            <label htmlFor={`${name}-${key}`}>
+              <Text content={entry.label} /> (<Text content={entry.unit} />)
+            </label>
+          }
         />
       ))}
     </div>

@@ -2,6 +2,8 @@ import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Line } from 'recharts'
 
 import formulaSettings from 'src/settings/formulas'
 import colors from 'src/styles/colors'
+import { Text } from 'src/components/Text'
+import { i18n } from 'src/i18n'
 
 import { getChartData, normalizeData } from './utils/helpers'
 import Wrapper from './Wrapper'
@@ -19,8 +21,13 @@ const CustomTooltip = ({
   if (active && payload && payload.length) {
     return (
       <>
-        <p>{`${xLabel} : ${label.toFixed(3)} ${xUnit}`}</p>
-        <p>{`${yLabel} : ${payload[0].value?.toFixed(3)} ${yUnit}`}</p>
+        <p>
+          <Text content={xLabel} />: {label.toFixed(3)} <Text content={xUnit} />
+        </p>
+        <p>
+          <Text content={yLabel} />: {payload[0].value?.toFixed(3)}{' '}
+          <Text content={yUnit} />
+        </p>
       </>
     )
   }
@@ -61,7 +68,7 @@ function LineCharts(props) {
             type="number"
             dataKey="x"
             label={{
-              value: `${formulaSettings[x].label} (${formulaSettings[x].unit})`,
+              value: `${i18n[formulaSettings[x].label]} (${i18n[formulaSettings[x].unit]})`,
               position: 'insideBottom',
               offset: 0,
             }}
@@ -72,7 +79,7 @@ function LineCharts(props) {
           <YAxis
             type="number"
             label={{
-              value: `${formulaSettings[y].label} (${formulaSettings[y].unit})`,
+              value: `${i18n[formulaSettings[y].label]} (${i18n[formulaSettings[y].unit]})`,
               position: 'insideLeft',
               angle: -90,
             }}

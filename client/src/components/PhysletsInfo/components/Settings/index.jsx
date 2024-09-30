@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 
+import { Text } from 'src/components/Text'
+
 import SettingsWrapper from './SettingsWrapper'
 import TableSettings from './TableSettings'
 import GraphSettings from './GraphSettings'
@@ -19,7 +21,7 @@ function Settings({ type, tableCol, x, y, changeType, name, domains }) {
     )
   return (
     <SettingsWrapper className="setting-wrapper">
-      <p className="title-setting">Tùy chỉnh</p>
+      <Text as="p" className="title-setting" content="settings" />
       {content}
     </SettingsWrapper>
   )

@@ -4,11 +4,12 @@ import { map, isNaN } from 'lodash'
 import formulaSettings from 'src/settings/formulas'
 import { roundNum } from 'src/utils/number'
 
+import { Text } from '../Text'
 import Tablewrapper from './Tablewrapper'
 
 function Table({ thead, tbody }) {
   const renderThead = map(thead, (th, index) => (
-    <th key={index}>{formulaSettings[th].label}</th>
+    <Text as="th" key={index} content={formulaSettings[th].label} />
   ))
 
   const renderTbody = map(tbody, (tb, index) => (

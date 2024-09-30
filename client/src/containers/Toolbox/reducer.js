@@ -26,7 +26,7 @@ const initialState = {
     trackMode: false,
     data: {
       1: {
-        name: 'Vật 1',
+        name: 'Object 1',
         mass: 1,
         k: 1,
         points: {},
@@ -34,7 +34,7 @@ const initialState = {
         on: true,
       },
       2: {
-        name: 'Vật 2',
+        name: 'Object 2',
         mass: 2,
         k: 1,
         points: {},
@@ -42,7 +42,7 @@ const initialState = {
         on: true,
       },
       3: {
-        name: 'Vật 3',
+        name: 'Object 3',
         mass: 3,
         k: 1,
         points: {},
@@ -61,7 +61,7 @@ const initialState = {
     showForce: false,
     data: {
       set1: {
-        name: 'Trước va chạm',
+        name: 'before_collision',
         loc: {
           x: 50,
           y: 50,
@@ -73,7 +73,7 @@ const initialState = {
         on: false,
       },
       set2: {
-        name: 'Sau va chạm',
+        name: 'after_collision',
         loc: {
           x: 50,
           y: 200,

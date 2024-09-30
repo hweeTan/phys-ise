@@ -34,7 +34,7 @@ function AxisContent({ onChange }) {
       <Checkbox
         id="axis-on"
         checked={on}
-        label="Bật/Tắt"
+        label="on_off"
         onChange={() => onChange('axis', 'on', !on)}
       />
     </ToolContentWrapper>

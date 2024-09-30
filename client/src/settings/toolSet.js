@@ -7,22 +7,22 @@ import filmIcon from 'src/images/icon-film.svg'
 export default {
   ruler: {
     icon: rulerIcon,
-    tooltip: 'Thước chuẩn',
+    tooltip: 'ruler',
   },
   axis: {
     icon: axisIcon,
-    tooltip: 'Hệ trục',
+    tooltip: 'axis',
   },
   point: {
     icon: createIcon,
-    tooltip: 'Tạo vật tương tác',
+    tooltip: 'point',
   },
   collision: {
     icon: vectorIcon,
-    tooltip: 'Tính toán - Vẽ vector',
+    tooltip: 'collision',
   },
   videoSettings: {
     icon: filmIcon,
-    tooltip: 'Tùy chỉnh video',
+    tooltip: 'video_settings',
   },
 }

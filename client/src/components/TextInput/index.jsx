@@ -17,7 +17,7 @@ function TextInput({
 }) {
   return (
     <TextInputWrapper data-border-color={borderColor} className="custom-input">
-      {label && <label htmlFor={id}>{label}</label>}
+      {typeof label === 'string' ? <label htmlFor={id}>{label}</label> : label}
       <input
         type={type}
         name={name}

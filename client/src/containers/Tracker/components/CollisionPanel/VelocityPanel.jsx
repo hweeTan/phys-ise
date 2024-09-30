@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { map } from 'lodash'
 
 import { roundNum } from 'src/utils/number'
+import { Text } from 'src/components/Text'
 
 function renderTableHead(sets, pointData) {
   return (
@@ -68,9 +69,12 @@ function VelocityPanel({ data, pointData, toggleForce, showForce }) {
         {renderTableHead(data, pointData)}
         {renderTableBody(data, showForce)}
       </table>
-      <button className="force-btn" onClick={toggleForce}>
-        {showForce ? 'Ẩn Lực' : 'Hiển thị Lực'}
-      </button>
+      <Text
+        as="button"
+        content={showForce ? 'hide_force' : 'show_force'}
+        className="force-btn"
+        onClick={toggleForce}
+      />
     </div>
   )
 }

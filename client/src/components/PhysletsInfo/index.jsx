@@ -4,6 +4,7 @@ import { map } from 'lodash'
 import Table from 'src/components/Table'
 import LineCharts from 'src/components/LineCharts'
 import Select from 'src/components/Select'
+import { Text } from 'src/components/Text'
 
 import iconExpand from 'src/images/icon-expand.png'
 import iconSettings from 'src/images/icon-settings.png'
@@ -63,7 +64,7 @@ function PhysletsInfo({ settings, changeType, name, pointSettings, points }) {
             alt={`icon-${isTable ? 'table' : 'graph'}`}
             src={isTable ? iconTable : iconGraph}
           />
-          <span className="label">{isTable ? 'Bảng' : 'Đồ Thị'}</span>
+          <Text className="label" content={isTable ? 'table' : 'graph'} />
         </button>
         <Select
           id={`${name}-point`}

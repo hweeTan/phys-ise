@@ -4,6 +4,7 @@ import { map, isNaN } from 'lodash'
 import formulas from 'src/settings/formulas'
 import Select from 'src/components/Select'
 import TextInput from 'src/components/TextInput'
+import { Text } from 'src/components/Text'
 
 const getInputValue = (value) => (isNaN(value) ? '' : value)
 
@@ -18,7 +19,7 @@ function GraphSettings({ changeType, name, x, y, domains }) {
         >
           {map(formulas, (entry, key) => (
             <option key={key} value={key}>
-              {entry.label} ({entry.unit})
+              <Text content={entry.label} /> (<Text content={entry.unit} />)
             </option>
           ))}
         </Select>
@@ -27,7 +28,9 @@ function GraphSettings({ changeType, name, x, y, domains }) {
           name="domain-x-from"
           value={getInputValue(domains.xfrom)}
           type="text"
-          label="Từ:"
+          label={
+            <Text as="label" htmlFor={`${name}-domain-x-from`} content="from" />
+          }
           onChange={(e) => changeType(name, 'domainXfrom', e.target.value)}
         />
         <TextInput
@@ -35,7 +38,9 @@ function GraphSettings({ changeType, name, x, y, domains }) {
           name="domain-x-to"
           value={getInputValue(domains.xto)}
           type="text"
-          label="Đến:"
+          label={
+            <Text as="label" htmlFor={`${name}-domain-x-to`} content="to" />
+          }
           onChange={(e) => changeType(name, 'domainXto', e.target.value)}
         />
       </div>
@@ -47,7 +52,7 @@ function GraphSettings({ changeType, name, x, y, domains }) {
         >
           {map(formulas, (entry, key) => (
             <option key={key} value={key}>
-              {entry.label} ({entry.unit})
+              <Text content={entry.label} /> (<Text content={entry.unit} />)
             </option>
           ))}
         </Select>
@@ -56,7 +61,9 @@ function GraphSettings({ changeType, name, x, y, domains }) {
           name="domain-y-from"
           value={getInputValue(domains.yfrom)}
           type="text"
-          label="Từ:"
+          label={
+            <Text as="label" htmlFor={`${name}-domain-y-from`} content="from" />
+          }
           onChange={(e) => changeType(name, 'domainYfrom', e.target.value)}
         />
         <TextInput
@@ -64,7 +71,9 @@ function GraphSettings({ changeType, name, x, y, domains }) {
           name="domain-y-to"
           value={getInputValue(domains.yto)}
           type="text"
-          label="Đến:"
+          label={
+            <Text as="label" htmlFor={`${name}-domain-y-to`} content="to" />
+          }
           onChange={(e) => changeType(name, 'domainYto', e.target.value)}
         />
       </div>

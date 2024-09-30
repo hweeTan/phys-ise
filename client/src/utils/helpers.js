@@ -3,6 +3,10 @@ import constants from 'src/settings/constants'
 import url from 'src/settings/url'
 
 export function shadeColor(color, percent) {
+  if (!color) {
+    return '#000'
+  }
+
   let R = parseInt(color.substring(1, 3), 16)
   let G = parseInt(color.substring(3, 5), 16)
   let B = parseInt(color.substring(5, 7), 16)
@@ -32,7 +36,6 @@ export function getOffset(el) {
 }
 
 export function uploadVideo(e, onSuccess = console.log, onError = console.log) {
-  // eslint-disable-line
   const file = e.target.files[0]
   const data = new FormData()
 
@@ -45,7 +48,6 @@ export function uploadVideo(e, onSuccess = console.log, onError = console.log) {
 }
 
 export function putFile(data, onSuccess = console.log, onError = console.log) {
-  // eslint-disable-line
   axios
     .post(`${constants.API_URL}${url.saveData}`, data)
     .then((response) => {
@@ -61,7 +63,6 @@ export function putFile(data, onSuccess = console.log, onError = console.log) {
 }
 
 export function getData(data, onSuccess = console.log, onError = console.log) {
-  // eslint-disable-line
   axios
     .post(`${constants.API_URL}${url.getData}`, data)
     .then((response) => {
@@ -84,7 +85,7 @@ export function getVideos(callback) {
     })
     .catch((error) => {
       callback(error)
-      console.error(error) // eslint-disable-line
+      console.error(error)
     })
 }
 

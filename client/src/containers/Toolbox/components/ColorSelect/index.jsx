@@ -3,14 +3,13 @@ import { map } from 'lodash'
 
 import colorsPool from 'src/settings/colorsPool'
 import Select from 'src/components/Select'
+import { Text } from 'src/components/Text'
 
 function ColorSelect({ id, value, onChange }) {
   return (
     <Select id={id} value={value} onChange={onChange}>
       {map(colorsPool, ({ id: colorId, name, hex }) => (
-        <option key={colorId} value={hex}>
-          {name}
-        </option>
+        <Text as="option" key={colorId} value={hex} content={name} />
       ))}
     </Select>
   )

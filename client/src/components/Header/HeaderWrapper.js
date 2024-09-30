@@ -4,14 +4,12 @@ import colors from 'src/styles/colors'
 
 const HeaderWrapper = styled.div`
   position: relative;
+  display: flex;
+  justify-content: space-between;
   z-index: 1;
 
-  .tool-group {
-    display: inline-block;
-  }
-
   .utility-group {
-    float: right;
+    display: flex;
   }
 
   .utility-button {
@@ -47,9 +45,6 @@ const HeaderWrapper = styled.div`
 
   .upload-file {
     position: relative;
-    overflow: hidden;
-    padding: 1.2rem 1.5rem;
-    display: inline;
 
     &:hover {
       opacity: 0.7;
@@ -64,8 +59,8 @@ const HeaderWrapper = styled.div`
     }
 
     label {
+      display: inline-block;
       position: relative;
-      margin-left: 1.2rem;
       font-size: 1.5rem;
       color: ${colors.gray1};
       cursor: pointer;
