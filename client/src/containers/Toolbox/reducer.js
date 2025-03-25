@@ -1,0 +1,161 @@
+import { createSlice } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
+import { useCallback } from 'react'
+
+import colors from 'src/styles/colors'
+
+const initialState = {
+  ruler: {
+    x1: 388,
+    y1: 140,
+    x2: 388,
+    y2: 530,
+    length: 1,
+    color: colors.blue,
+    on: false,
+  },
+  axis: {
+    x: 400,
+    y: 530,
+    angle: 0,
+    color: colors.purple,
+    on: false,
+  },
+  point: {
+    currentPoint: 1,
+    color: colors.green,
+    trackMode: false,
+    data: {
+      1: {
+        name: 'Object 1',
+        mass: 1,
+        k: 1,
+        points: {},
+        color: colors.pink,
+        on: true,
+      },
+      2: {
+        name: 'Object 2',
+        mass: 2,
+        k: 1,
+        points: {},
+        color: colors.green,
+        on: true,
+      },
+      3: {
+        name: 'Object 3',
+        mass: 3,
+        k: 1,
+        points: {},
+        color: colors.black,
+        on: true,
+      },
+    },
+  },
+  collision: {
+    currentSet: 'set1',
+    mode: 'p',
+    time: null,
+    startTime: null,
+    endTime: null,
+    zoom: 100,
+    showForce: false,
+    data: {
+      set1: {
+        name: 'before_collision',
+        loc: {
+          x: 50,
+          y: 50,
+          x1: 100,
+          y1: 50,
+          x2: 50,
+          y2: 100,
+        },
+        on: false,
+      },
+      set2: {
+        name: 'after_collision',
+        loc: {
+          x: 50,
+          y: 200,
+          x1: 100,
+          y1: 200,
+          x2: 50,
+          y2: 250,
+        },
+        on: false,
+      },
+    },
+    color: colors.gray1,
+  },
+  videoSettings: {
+    color: colors.pink,
+  },
+  currentTool: 'videoSettings',
+}
+
+export const toolboxSlice = createSlice({
+  name: 'toolbox',
+  initialState,
+  reducers: {
+    ChangeTool: (s, { payload }) => {
+      s.currentTool = payload
+    },
+
+    UpdateTool: (s, { payload: { tool, name, value } }) => {
+      s[tool][name] = value
+    },
+
+    UpdatePoint: (s, { payload: { id, frame, x, y } }) => {
+      s.point.data[id].points[frame] = { x, y }
+    },
+
+    UpdatePointValue: (s, { payload: { id, name, value } }) => {
+      s.point.data[id][name] = value
+    },
+
+    UpdateVector: (s, { payload: { setId, value } }) => {
+      s.collision.data[setId].loc = {
+        ...s.collision.data[setId].loc,
+        ...value,
+      }
+    },
+
+    UpdateVectorValue: (s, { payload: { setId, name, value } }) => {
+      s.collision.data[setId][name] = value
+    },
+
+    Reset: (_, { payload }) => payload ?? initialState,
+
+    ChangeVideo: () => initialState,
+
+    ToggleForce: (s) => {
+      s.collision.showForce = !s.collision.showForce
+    },
+  },
+})
+
+export const {
+  ChangeTool,
+  UpdateTool,
+  UpdatePoint,
+  UpdatePointValue,
+  UpdateVector,
+  UpdateVectorValue,
+  Reset,
+  ChangeVideo,
+  ToggleForce,
+} = toolboxSlice.actions
+
+export const useUpdateTool = () => {
+  const dispatch = useDispatch()
+
+  const updateTool = useCallback(
+    (tool, name, value) => dispatch(UpdateTool({ tool, name, value })),
+    [dispatch],
+  )
+
+  return updateTool
+}
+
+export default toolboxSlice.reducer
